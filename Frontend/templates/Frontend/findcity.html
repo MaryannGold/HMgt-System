@@ -1,0 +1,22 @@
+{% extends 'base/frontend/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="padding-top:15px" >
+    <div class="row">
+
+        <div class="col-md-4">
+            {% for hotels in  check_for_city  %}
+
+                        <a href="#"><img src="{{ hotels.hotel_image.url }}" class="card-img-top img-fluid"style="height:180px"> </a>
+                        <h4>{{hotels.hotel_name}}</h4>
+                        <h5>{{hotels.brief_description}}</h5>
+                        <div class="col-lg-6 offset-3">
+                            <a href="{% url 'Frontend:view_more' hotels.id%}"class="btn btn-primary">View Hotel</a>
+                        </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock%}

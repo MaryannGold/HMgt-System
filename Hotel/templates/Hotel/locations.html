@@ -1,0 +1,28 @@
+{% extends 'base/frontend/base.html' %}
+{% load static %}
+{% load hotel_tags %}
+
+{% block content %}
+<div class="container" style="padding-top:15px" >
+    <div class="row">
+
+        <div class="col-md-4">
+            {% for hotels in locations %}
+                <div class="card">
+                    {% for pic in hotels.pk|get_pictures %}
+                        <a href="#"><img src="{{ pic.hotel_image.url }}" class="card-img-top img-fluid"style="height:180px"> </a>
+                    {% endfor %}
+                    <div class="card-body">
+                        <h3>{{hotels.hotel_name}}</h3>
+                        <hr>
+                        <h5>{{hotels.brief_description}}</h5>
+                        <div class="col-lg-6 offset-3">
+                            <a href="{% url 'Frontend:view_more' hotels.id%}"class="btn btn-primary">View Hotel</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock%}

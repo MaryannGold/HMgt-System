@@ -1,0 +1,80 @@
+{% extends 'base/frontend/base.html' %}
+{% load static %}
+    {% block content %}
+<style>
+    .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+</style>
+<div class ="container-fluid">
+    <div class="row" style="margin-top:1%" >
+        <div class="col-sm-4">
+            <a href="{% url 'Hotel:locations' 'lagos' %}"> <img src = "{% static 'pictures/lagos.jpg '%}" class="img-fluid" style="height:300px; width:100%"></a>
+            <div class="centered">
+                <a href="{% url 'Hotel:locations' 'lagos' %}" style="text-decoration:none;color:#FFBFFF; font-size:x-large"><strong>LAGOS</strong></a>
+                <h3 style="color:#FFBFFF">&nbsp;&nbsp;&nbsp;{{count_number_lagos}}</h3>
+            </div>
+        </div>
+         <div class="col-sm-4">
+            <a href="{% url 'Hotel:locations' 'abuja' %}"><img src = "{% static 'pictures/abuja.jpg '%}" class="img-fluid" style="height:300px; width:100%"></a>
+             <div class="centered">
+                <a href="{% url 'Hotel:locations' 'abuja' %}" style="text-decoration:none;color:#FFBFFF; font-size:x-large"><strong>ABUJA</strong></a>
+                <h3 style="color:#FFBFFF">&nbsp;&nbsp;&nbsp;{{count_number_abuja}}</h3>
+            </div>
+         </div>
+             <div class="col-sm-4">
+                <img src = "{% static 'pictures/owerri.jpg '%}" class="img-fluid" style="height:300px; width:100%">
+                 <div class="centered">
+                <a href="#" style="text-decoration:none;color:#FFBFFF; font-size:x-large"><strong>OWERRI</strong></a>
+                <h3 style="color:#FFBFFF">&nbsp;&nbsp;&nbsp;{{count_number_owerri}}</h3>
+             </div>
+      </div>
+    <div class="row" style="margin-top:1%">
+        <div class="col-sm-4">
+            <img src = "{% static 'pictures/ph.jpg '%}" class="img-fluid" style="height:300px; width:100%">
+            <div class="centered">
+                <a href="#" style="text-decoration:none;color:#FFBFFF; font-size:x-large"><strong>PORTHARCOURT</strong></a>
+                <h3 style="color:#FFBFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{count_number_portharcourt}}</h3>
+        </div>
+        </div>
+         <div class="col-sm-4">
+             <img src = "{% static 'pictures/delta.jpg '%}" class="img-fluid" style="height:300px; width:100%">
+             <div class="centered">
+                <a href="#" style="text-decoration:none;color:#FFBFFF; font-size:x-large"><strong>DELTA</strong></a>
+                <h3 style="color:#FFBFFF">&nbsp;&nbsp;&nbsp;{{count_number_delta}}</h3>
+         </div>
+         </div>
+             <div class="col-sm-4">
+                <img src = "{% static 'pictures/calabar.jpg '%}" class="img-fluid" style="height:300px; width:100%">
+                 <div class="centered">
+                <a href="#" style="text-decoration:none;color:#FFBFFF; font-size:x-large"><strong>CALABAR</strong></a>
+                <h3 style="color:#FFBFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{count_number_calabar}}</h3>
+             </div>
+    </div>
+    <div class="row" style="margin-top:1%">
+        <div class="col-sm-4">
+           <img src = "{% static 'pictures/uyo.jpg '%}" class="img-fluid" style="height:300px; width:100%" >
+            <div class="centered">
+                <a href="#" style="text-decoration:none;color:#FFBFFF; font-size:x-large"><strong>UYO</strong></a>
+                <h3 style="color:#FFBFFF">&nbsp;&nbsp;&nbsp;{{count_number_uyo}}</h3>
+        </div>
+        </div>
+         <div class="col-sm-4">
+             <img src = "{% static 'pictures/ENUGU.jpg '%}" class="img-fluid" style="height:300px; width:100%">
+             <div class="centered">
+                <a href="#" style="text-decoration:none;color:#FFBFFF; font-size:x-large"><strong>ENUGU</strong></a>
+                <h3 style="color:#FFBFFF">&nbsp;&nbsp;&nbsp;{{count_number_enugu}}</h3>
+         </div>
+         </div>
+             <div class="col-sm-4">
+                 <img src = "{% static 'pictures/kano.jpg '%}"class="img-fluid" style="height:300px; width:100%" >
+                 <div class="centered">
+                <a href="#" style="text-decoration:none;color:#FFBFFF; font-size:x-large"><strong>KANO</strong></a>
+                <h3 style="color:#FFBFFF">&nbsp;&nbsp;&nbsp;{{count_number_kano}}</h3>
+             </div>
+    </div>
+</div>
+{% endblock %}

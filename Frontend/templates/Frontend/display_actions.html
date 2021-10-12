@@ -1,0 +1,25 @@
+{% extends 'base/frontend/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="padding-top:15px" >
+    <div class="card col-md-12">
+        <div class="row">
+
+            <div class="col-md-4">
+                {% for category in room_category  %}
+                    {% if request.user.is_authenticated%}
+                        <h2 class="h5">{{user.username}}</h2><span>Here are the steps you took in Reserving a room</span>
+                    {% endif %}
+                                <a href="#"><img src="{{ category.category_name.url }}" class="card-img-top img-fluid"style="height:180px"> </a>
+                                <h4>{{category.category_name}}</h4>
+                                <div class="col-lg-6 offset-3">
+                                    <a href="#" class="btn btn-primary">View Hotel</a>
+                                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

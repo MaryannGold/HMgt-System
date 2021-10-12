@@ -1,0 +1,24 @@
+{% extends 'base/frontend/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="padding-top:15px">
+    <div class="row">
+        {% for hotels in display_ph %}
+        <div class="col-md-4">
+            <div class="card">
+                <a href="#"><img src="{{hotels.hotel_image.url}}" class="card-img-top img-fluid"style="height:180px"> </a>
+                <div class="card-body">
+                    <h3>{{hotels.hotel_name}}</h3>
+                    <hr>
+                    <h5>{{hotels.brief_description}}</h5>
+                    <div class="col-lg-6 offset-3">
+                    <a href="#"class="btn btn-primary">View Hotel</a>
+                </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock%}

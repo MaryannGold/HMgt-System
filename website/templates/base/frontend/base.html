@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Management System {% block title %}{% endblock %}</title>
+     <link rel="stylesheet" href="{%static 'bootstrap-4.1.1-dist/css/bootstrap.min.css'%}" type="text/css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <style type="text/css">
+
+
+}
+    </style>
+</head>
+<body>
+<!--NAVIGATION-->
+<nav class = "navbar navbar-expand-md navbar-light bg-light sticky-top">
+<div class ="container-fluid">
+    <a class = "navbar-brand" href = "#"><img src = "{% static 'pictures/LOGO.png '%}" class="img-fluid"/></a>
+    <button class="navbar-toggler" type ="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'Frontend:homepage' %}">HOME</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Frontend:aboutus' %}">ABOUT</a>
+            </li>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="hotel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         HOTELS
+        </a>
+        <div class="dropdown-menu" aria-labelledby="hotel">
+          <a class="dropdown-item" href="#">Lagos</a>
+          <a class="dropdown-item" href="#">Abuja</a>
+          <a class="dropdown-item" href="#">Owerri</a>
+          <a class="dropdown-item" href="#">Port-Harcourt</a>
+          <a class="dropdown-item" href="">Delta</a>
+          <a class="dropdown-item" href="">Calabar</a>
+          <a class="dropdown-item" href="">Uyo</a>
+          <a class="dropdown-item" href="">Enugu</a>
+          <a class="dropdown-item" href="">Ibadan</a>
+          <a class="dropdown-item" href="">Kano</a>
+
+        </div>
+            </li>
+
+            {% if request.user.is_authenticated %}
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Account:choose_profile' %}">MY DASHBOARD</a>
+            </li>
+            {% else %}
+              <li class="nav-item dropdown">
+               <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         REGISTER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{%url 'Account:register'%}">Guest</a>
+          <a class="dropdown-item" href="{%url 'Account:hotel_register'%}">Hotel Owner</a>
+        </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'Account:login' %}">LOGIN </a>
+            </li>
+            {% endif %}
+            <!----{% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'Account:logout_view'%}">LOGOUT </a>
+            </li>
+            {% else %}
+             <li class="nav-item">
+                <a class="nav-link" href="{% url 'Account:login' %}">LOGIN </a>
+            </li>
+            {% endif %}--->
+        </ul>
+
+    </div>
+</div>
+</nav>
+{% block content %}{% endblock %}
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src = "https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<script src="{%static 'bootstrap-4.1.1-dist/js/bootstrap.min.js' %}" type="text/javascript">
+</script>
+</html>

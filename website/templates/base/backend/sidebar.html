@@ -1,0 +1,55 @@
+{% load static %}
+<nav class="side-navbar"style="background-color:darkblue">
+      <div class="side-navbar-wrapper">
+        <!-- Sidebar Header    -->
+        <div class="sidenav-header d-flex align-items-center justify-content-center" style="background-color:darkblue">
+          <!-- User Info-->
+          <div class="sidenav-header-inner text-center"><img src="{% static 'backend/Dashboard/img/blank.png' %}" alt="person" class="img-fluid rounded-circle">
+            {% if request.user.is_authenticated%}
+            <h2 class="h5">{{user.username}}</h2><span>Welcome To LBMG</span>
+            {% endif %}
+          </div>
+          <!-- Small Brand information, appears on minimized sidebar-->
+          <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>LB</strong><strong class="text-primary">MG</strong></a></div>
+        </div>
+
+                  <!-- Sidebar Navigation Menus-->
+        <div class="main-menu" style="background-color:darkblue">
+            {% if perms.Account.hotel %}
+              <h5 class="sidenav-heading">Hotel Admin</h5>
+              <ul id="side-main-menu" class="side-menu list-unstyled">
+                <li><a href="{% url 'Customer:hotel_dashboard'%}"> <i class="icon-home"></i>Home</a></li>
+                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Setup </a>
+                  <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                      <li><a href="{% url 'Hotel:add-hotel'%}"> <i class="icon-form"></i>Create-Hotel</a></li>
+                    <li><a href="{% url 'Hotel:room-categories' %}">Room Categories</a></li>
+                  </ul>
+                </li>
+                <li><a href="#"> <i class="fa fa-bar-chart"> </i>View Your Hotel Rating</a></li>
+                <li><a href="{% url 'Hotel:add-image'%}"> <i class="icon-grid"></i>View-Tables</a></li>
+                <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Front-Desk Login </a>
+                  <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                    <li><a href="#">Receptionist-Login</a></li>
+                    <li><a href="#">check-Guests-Reservation</a></li>
+                  </ul>
+                </li>-->
+               <!-- <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page</a></li>
+                <li> <a href="#"> <i class="icon-mail"></i>Demo
+                    <div class="badge badge-warning">6 New</div></a></li>-->
+              </ul>
+            {% endif %}
+            {% if perms.Account.guest %}
+                <h5 class="sidenav-heading">Guest</h5>
+                <ul id="side-admin-menu" class="side-menu list-unstyled">
+                    <li><a href="#"> <i class="icon-home"></i>Home</a></li>
+                    <li> <a href="#"> <i class="icon-screen"> </i>My Reservation</a></li>
+                    <li> <a href="#"> <i class="icon-flask"> </i>Hotel Deals
+                        <div class="badge badge-info">Special</div></a></li>
+                    <li> <a href="#"> <i class="icon-flask"> </i>Rate-Hotel</a></li>
+                    <!--<li> <a href=""> <i class="icon-picture"> </i>Demo</a></li>-->
+                </ul>
+            {% endif %}
+        </div>
+
+      </div>
+    </nav>

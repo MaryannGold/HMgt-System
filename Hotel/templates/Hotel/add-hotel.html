@@ -1,0 +1,52 @@
+{% extends 'Customer/dashboard.html' %}
+
+{% load static %}
+{% block title_page %} LBMG::Add Hotel Details {% endblock %}
+{% block page_title %} Add Hotel Details {% endblock %}
+
+{% block content %}
+<div class="container">
+  <!--<h3>LBMG</h3>-->
+  <!---<ul class="nav nav-pills nav nav-justified">
+    <li class="active"><a href="#" data-toggle="tab">HOTEL</a></li>
+    <li><a href="#" data-toggle="tab">UPLOAD IMAGES</a></li>
+  </ul>--->
+    <div class="tab-content"></div>
+<div class="content">
+        <div class="row">
+            <div class="col-lg-1">&nbsp;</div>
+          <div class="col-lg-10">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category" style="text-align:center">Create Hotel</h5>
+              </div>
+              <div class="card-body">
+                <form method="post" action="{% url 'Hotel:add-hotel' %}" class="form-horizontal" enctype="multipart/form-data">
+                  {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                  <label for="{{ field.id }}" class="control-label col-sm-2">{{ field.label }}: </label>
+                  <div class="col-sm-9">
+                    {{ field }}
+                  </div>
+                  {{ field.errors }}
+                </div>
+                {% endfor %}
+                    <div class="form-group col-md-9">
+                      <label>Image-Name:</label>
+                      <input type="text" class="form-control" name="image">
+                    </div>
+                 <div class="col-md-9">
+                     <label>Add Image:</label>
+                     <input type="file" class="form-control" name="image2"/>
+                 </div>
+                 <input type="submit" class="btn btn-primary pull-right"/>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}
+
+

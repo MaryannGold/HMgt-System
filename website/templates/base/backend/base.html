@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %} {% endblock %} - LBMG</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+      <!--fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'backend/Dashboard/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{% static 'backend/Dashboard/vendor/font-awesome/css/font-awesome.min.css' %}">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="{% static 'backend/Dashboard/css/fontastic.css' %}">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700'">
+    <!-- jQuery Circle-->
+    <link rel="stylesheet" href="{% static 'backend/Dashboard/css/grasp_mobile_progress_circle-1.0.0.min.css' %}">
+    <!-- Custom Scrollbar-->
+    <link rel="stylesheet" href="{% static 'backend/Dashboard/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css' %}">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{% static 'backend/Dashboard/css/style.default.css'%}" id="theme-stylesheet ">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{% static 'backend/Dashboard/css/custom.css '%}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'backend/Dashboard/img/favicon.ico '%}">
+    <style type="text/css">
+    .side-navbar li a:focus, .side-navbar li a:hover, .side-navbar li a[aria-expanded="true"] {
+     background: #0000FF;
+     color: #fff;
+     text-decoration: none;}
+     nav.navbar {
+     background: #393836;
+    padding: .8rem 0;}
+
+    </style>
+      {% block css %} {% endblock %}
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <!-- Side Navbar -->
+      {% block sidebar-nav %}
+            {% include 'base/backend/sidebar.html' %}
+      {% endblock %}
+    <div class="page">
+      <!-- navbar-->
+      <header class="header">
+        <nav class="navbar" style="background-color:darkblue">
+          <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+              <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="#" class="navbar-brand">
+                  <div class="brand-text d-none d-md-inline-block">{% block page_title %} {% endblock %}</div></a></div>
+              <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Notifications dropdown-->
+                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li><a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification d-flex justify-content-between">
+                          <div class="notification-content"><i class="fa fa-envelope"></i>You have 6 new messages </div>
+                          <div class="notification-time"><small>4 minutes ago</small></div>
+                        </div></a></li>
+                     <li><a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification d-flex justify-content-between">
+                          <div class="notification-content"><i class="fa fa-twitter"></i>You have 2 followers</div>
+                          <div class="notification-time"><small>4 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification d-flex justify-content-between">
+                          <div class="notification-content"><i class="fa fa-upload"></i>Server Rebooted</div>
+                          <div class="notification-time"><small>4 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification d-flex justify-content-between">
+                          <div class="notification-content"><i class="fa fa-twitter"></i>You have 2 followers</div>
+                          <div class="notification-time"><small>10 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-bell"></i>view all notifications                                            </strong></a></li>
+                  </ul>
+                </li>
+                <!-- Messages dropdown-->
+               <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i><span class="badge badge-info">10</span></a>
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile"> <img src="{% static 'backend/Dashboard/img/avatar-1.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Jason Doe</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile"> <img src="{% static 'backend/Dashboard/img/avatar-2.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Frank Williams</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile"> <img src="{% static 'backend/Dashboard/img/avatar-3.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Ashley Wood</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>Read all messages    </strong></a></li>
+                  </ul>
+                </li>
+                <!-- Languages dropdown-->
+                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
+                  <ul aria-labelledby="languages" class="dropdown-menu">
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="{% static 'backend/Dashboard/img/flags/16/DE.png' %}" alt="English" class="mr-2"><span>German</span></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="{% static 'backend/Dashboard/img/flags/16/FR.png' %}" alt="English" class="mr-2"><span>French                                                         </span></a></li>
+                  </ul>
+                </li>
+                <!-- Log out-->
+                <li class="nav-item"><a href="{% url 'Account:logout_view'%}" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      {% block content %}{% endblock %}
+
+             <!-- <div id="recent-activities-wrapper" class="card updates activities">
+                <div id="activites-header" class="card-header d-flex justify-content-between align-items-center">
+                  <h2 class="h5 display"><a data-toggle="collapse" data-parent="#recent-activities-wrapper" href="#activities-box" aria-expanded="true" aria-controls="activities-box">Recent Activities</a></h2><a data-toggle="collapse" data-parent="#recent-activities-wrapper" href="#activities-box" aria-expanded="true" aria-controls="activities-box"><i class="fa fa-angle-down"></i></a>
+                </div>
+                <div id="activities-box" role="tabpanel" class="collapse show">
+                  <ul class="activities list-unstyled">
+                    <!-- Item-->
+                   <!-- <li>
+                      <div class="row">14cec
+                        <div class="col-4 date-holder text-right">
+                          <div class="icon"><i class="icon-clock"></i></div>
+                          <div class="date"> <span>6:00 am</span><span class="text-info">6 hours ago</span></div>
+                        </div>
+                        <div class="col-8 content"><strong>Meeting</strong>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.                </p>
+                        </div>
+                      </div>
+                    </li>-->
+                    <!-- Item-->
+                    <!--<li>
+                      <div class="row">
+                        <div class="col-4 date-holder text-right">
+                          <div class="icon"><i class="icon-clock"></i></div>
+                          <div class="date"> <span>6:00 am</span><span class="text-info">6 hours ago</span></div>
+                        </div>
+                        <div class="col-8 content"><strong>Meeting</strong>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.                </p>
+                        </div>
+                      </div>
+                    </li>-->
+                    <!-- Item-->
+                   <!-- <li>
+                      <div class="row">
+                        <div class="col-4 date-holder text-right">
+                          <div class="icon"><i class="icon-clock"></i></div>
+                          <div class="date"> <span>6:00 am</span><span class="text-info">6 hours ago</span></div>
+                        </div>
+                        <div class="col-8 content"><strong>Meeting</strong>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.                </p>
+                        </div>
+                      </div>
+                    </li>-->
+                    <!-- Item-->
+                   <!-- <li>
+                      <div class="row">
+                        <div class="col-4 date-holder text-right">
+                          <div class="icon"><i class="icon-clock"></i></div>
+                          <div class="date"> <span>6:00 am</span><span class="text-info">6 hours ago</span></div>
+                        </div>
+                        <div class="col-8 content"><strong>Meeting</strong>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.                </p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>-->
+     <!--<footer class="main-footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6">
+              <p>LBMG &copy; 2018</p>
+            </div>
+            <div class="col-sm-6 text-right">
+              <p>By <a href="#" class="external">LBMG</a></p>
+              <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions and it helps me to run Bootstrapious. Thank you for understanding :)-->
+            <!--</div>
+          </div>
+        </div>
+      </footer>-->
+    </div>
+    <!-- JavaScript files-->
+    <script src="{% static 'backend/Dashboard/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'backend/Dashboard/vendor/popper.js/umd/popper.min.js' %}"> </script>
+    <script src="{% static 'backend/Dashboard/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'backend/Dashboard/js/grasp_mobile_progress_circle-1.0.0.min.js' %}"></script>
+    <script src="{% static 'backend/Dashboard/vendor/jquery.cookie/jquery.cookie.js' %}"> </script>
+    <script src="{% static 'backend/Dashboard/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'backend/Dashboard/vendor/jquery-validation/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'backend/Dashboard/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'backend/Dashboard/js/charts-home.js' %}"></script>
+    <!-- Main File-->
+    <script src="{% static 'backend/Dashboard/js/front.js' %}"></script>
+    {% block js %} {% endblock %}
+  </body>
+</html>

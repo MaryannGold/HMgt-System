@@ -1,0 +1,65 @@
+{% extends 'base/backend/base.html' %}
+
+{% load static %}
+{% block title %} View Hotel {% endblock %}
+{% block page_title %} See Updated Details {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+            <div class="col-md-8 offset-2">
+            {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible" role="alert" style="background-color: whitesmoke; box-shadow: 10px 10px 10px;color:darkgray">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+   <p style="color:red">{{ message }}</p>
+        {% endfor %}
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<!-- <div class="input-group mb-3">
+   <div class="input-group-prepend">
+     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+   </div>
+   <div class="custom-file">
+     <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+   </div>
+ </div>-->
+    <div class="col-md-8 offset-2" style="margin-top:5%">
+    <div class="card">
+   <div class="row">
+     <div class="card-body">
+<table class="table table-hover table-light">
+  <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for hotel in hotels %}
+    <tr>
+        <td scope="row">{{ forloop.counter }}</td>
+        <td>{{ hotel.hotel_name }}</td>
+        <td>{{ hotel.brief_description }}</td>
+        <td><a href="{% url 'Hotel:details' hotel.pk  %}" class="btn btn-info btn-md"><i class="far fa-eye"></i> Details</a></td>
+        <td><a href="#" class="btn btn-info btn-md"><i class="fas fa-plus-circle"></i>Add-Room-Images</a></td>
+        <td><a href="#" class=" btn btn-info btn-md"><i class="fas fa-plus-circle"></i>Add-Hotel-Images</a> </td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+            </div>
+        </div>
+</div>
+</div>
+{% endblock %}
+
